@@ -25,7 +25,7 @@ const PaymentScreen = ({ history }) => {
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legent">
+          <Form.Label as="legend">
             Select Method
             <Col>
               <Form.Check
