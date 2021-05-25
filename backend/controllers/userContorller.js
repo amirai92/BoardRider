@@ -109,6 +109,9 @@ const getUsers = asyncHandler(async (req, res) => {
 
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
+  if (user.email === "admin@example.com") {
+    throw new Error("Not able to delete Admin User");
+  }
   if (user) {
     await user.remove();
     res.json({ message: "User removed" });
@@ -136,14 +139,14 @@ const getUserById = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
-
+  if (user.email === "admin@example.com") {
+    throw new Error("Not able to delete Admin User");
+  }
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.isAdmin = req.body.isAdmin;
-
     const updatedUser = await user.save();
-
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
