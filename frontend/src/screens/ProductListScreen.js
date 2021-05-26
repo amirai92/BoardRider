@@ -68,7 +68,7 @@ const ProductListScreen = ({ history }) => {
           <h1>Products</h1>
         </Col>
         <Col className="text-right">
-          <Button classsName="my-3" onClick={createProductHandler}>
+          <Button className="my-3" onClick={createProductHandler}>
             <i className="fas fa-plus"></i> Create Product
           </Button>
         </Col>
@@ -104,7 +104,7 @@ const ProductListScreen = ({ history }) => {
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
-                    <LinkContainer to={`admin/prodcut/${product._id}/edit`}>
+                    <LinkContainer to={`/admin/product/${product._id}/edit`}>
                       <Button variant="light" className="btn-sm">
                         <i className="fas fa-edit"></i>
                       </Button>

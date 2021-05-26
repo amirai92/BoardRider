@@ -13,7 +13,7 @@ import Rating from "../components/Rating";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { listProductsDetails } from "../actions/productActions";
+import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -21,7 +21,7 @@ const ProductScreen = ({ history, match }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { product, error, loading } = productDetails;
   useEffect(() => {
-    dispatch(listProductsDetails(match.params.id));
+    dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
