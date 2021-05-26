@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import Product from "../models/productModal.js";
+import Product from "../models/productModel.js";
 // @desc fetch all products
 // @route GET /api/products
 // @access Public route
