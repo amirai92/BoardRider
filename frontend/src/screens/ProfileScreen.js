@@ -32,10 +32,11 @@ const ProfileScreen = ({ history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user || !user.name || success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      if (!user || !user.name) {
         dispatch(getUserDetails("profile"));
         dispatch(listMyOrders());
+      } else if (success) {
+        setTimeout(() => dispatch({ type: USER_UPDATE_PROFILE_RESET }), 3000);
       } else {
         setName(user.name);
         setEmail(user.email);
